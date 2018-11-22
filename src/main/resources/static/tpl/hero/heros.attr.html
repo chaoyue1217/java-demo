@@ -1,0 +1,67 @@
+<div ng-controller="HeroAttrsCtrl">
+	<div class="bg-light lter b-b wrapper-md"  style="position:fixed;z-index:9;width:100%;top:50px">
+	  <h1 class="m-n font-thin h3 operation"><a ui-sref="app.category.category">分类</a>>><a ui-sref="app.category.heros({category_id:'{{category_id}}'})">{{category_name}}</a>>>{{hero_name}}</h1>
+	</div>
+	<!-- <div style="margin:100px 0 20px 70px"></div> -->
+	<div ng-if="show">
+		<div class="panel panel-success col-sm-5" style="padding:0;margin:100px 0 0 70px">
+			 <div class="panel-heading" style="padding:10px 15px;font-size:20px">
+	        	  技能介绍
+	        </div>
+	        <div style="padding:20px 20px 0 20px" class="panelContent">
+				<accordion close-others="oneAtATime">
+		          <accordion-group heading="{{attrs.passiveName}}" is-open="true">
+		            {{attrs.passive}}
+		          </accordion-group>
+		            <accordion-group heading="{{attrs.firstName}}" is-open="true">
+		            {{attrs.first}}
+		          </accordion-group>
+		            <accordion-group heading="{{attrs.secondName}}" is-open="true">
+		            {{attrs.second}}
+		          </accordion-group>
+		            <accordion-group heading="{{attrs.thirdName}}" is-open="true">
+		            {{attrs.third}}
+		          </accordion-group>
+		        </accordion>
+	        </div>
+		</div>
+		<div class="panel panel-success col-sm-5" style="padding:0;margin:100px 0 0 50px">
+			 <div class="panel-heading" style="padding:10px 15px;font-size:20px">
+	        	  综合能力
+	        </div>
+			<div class="list-group">
+			  <div class="list-group-item clearfix"  style="position:relative">
+			  	<h4 class="col-sm-2">生存能力</h4>
+			  	<div class="col-sm-10" style="position:absolute;margin:-8px 0 0 15%;top:50%">
+			  		<progressbar value="attrs.survival" class="progress-xs" type="success"></progressbar>
+			  	</div>
+			  </div>
+			  <div class="list-group-item clearfix"  style="position:relative">
+			  	<h4 class="col-sm-2">攻击伤害</h4>
+			  	<div class="col-sm-10" style="position:absolute;margin:-8px 0 0 15%;top:50%">
+			  		<progressbar value="attrs.damage" class="progress-xs" type="danger"></progressbar>
+			  	</div>
+			  </div>
+			  <div class="list-group-item clearfix"  style="position:relative">
+			  	<h4 class="col-sm-2">技能效果</h4>
+			  	<div class="col-sm-10" style="position:absolute;margin:-8px 0 0 15%;top:50%">
+			  		<progressbar value="attrs.skill" class="progress-xs" type="info"></progressbar>
+			  	</div>
+			  </div>
+			  <div class="list-group-item clearfix"  style="position:relative">
+			  	<h4 class="col-sm-2">上手难度</h4>
+			  	<div class="col-sm-10" style="position:absolute;margin:-8px 0 0 15%;top:50%">
+			  		<progressbar value="attrs.difficulty" class="progress-xs" type="warning"></progressbar>
+			  	</div>
+			  </div>
+			</div>
+		</div>
+		<div class="col-sm-1 modifyAttr"><button class="btn m-b-xs w-xs btn-primary" ng-click="goModifyAttrs()">编辑属性</button></div>
+	</div>	
+	<div ng-if="!show">
+		<div class="col-sm-8 goModify">
+			当前英雄属性还未设置，请前往<a ui-sref="app.category.attrs_create({hero_id:'{{id}}',hero_name:'{{hero_name}}',category_id:'{{category_id}}'})">编辑属性</a>页面进行编辑 ! ! !
+		</div>
+	</div>
+	
+</div>

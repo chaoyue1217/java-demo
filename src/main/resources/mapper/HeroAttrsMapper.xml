@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.HeroAttrsMapper">
+	<sql id="Base_Col_List">
+		id,survival,damage,skill,difficulty,passive,first,second,third,hero_id as heroId,
+		first_name as firstName,second_name as secondName,third_name as thirdName,passive_name as passiveName
+	</sql>
+	
+	<insert id="AddAttrs" parameterType="com.spring.entity.HeroAttrsEntity">
+		insert into attributes(
+		id,survival,damage,skill,difficulty,passive,first,second,third,hero_id,
+		first_name,second_name,third_name,passive_name
+		)values(
+		#{id},
+		#{survival},
+		#{damage},
+		#{skill},
+		#{difficulty},
+		#{passive},
+		#{first},
+		#{second},
+		#{third},
+		#{heroId},
+		#{firstName},
+		#{secondName},
+		#{thirdName},
+		#{passiveName}
+		)
+	</insert>
+	
+	<select id="GetAttrs" resultType="com.spring.entity.HeroAttrsEntity">
+		select 
+		<include refid="Base_Col_List"/> 
+		from attributes
+		where hero_id = #{heroId}
+	</select>
+	
+	<update id="UpdateAttrs" parameterType="com.spring.entity.HeroAttrsEntity">
+		update attributes set
+		survival = #{survival},
+		damage = #{damage},
+		skill = #{skill},
+		difficulty = #{difficulty},
+		passive = #{passive},
+		first = #{first},
+		second = #{second},
+		third = #{third},
+		hero_id = #{heroId},
+		first_name = #{firstName},
+		second_name = #{secondName},
+		third_name = #{thirdName},
+		passive_name = #{passiveName}
+		where id = #{id}
+	</update>
+	
+	<delete id="DeleteAttrs">
+		delete form attributes 
+		where id = #{id}
+	</delete>
+	
+	
+</mapper>

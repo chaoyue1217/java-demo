@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.HerosMapper">
+	<sql id="Base_Col_List">
+		id,name,img_url imgUrl,history,category_id categoryId
+	</sql>
+	
+	<insert id="HerosAdd" parameterType="com.spring.entity.HerosEntity">
+		insert into heros(
+		id,name,img_url,history,category_id
+		) values(
+		#{id},
+		#{name}, 
+		#{imgUrl},
+		#{history},
+		#{categoryId}
+		)
+	</insert>
+	
+	<select id="HerosGet" resultType="com.spring.entity.HerosEntity">
+		select 
+		<include refid="Base_Col_List"/>
+		from heros where id=#{id}
+	</select>
+	
+	<select id="HerosGetAll" resultType="com.spring.entity.HerosEntity">
+		select 
+		<include refid="Base_Col_List"/>
+		from heros 
+		where category_id = #{categoryId}
+	</select>
+	
+	<update id="HerosUpdate" parameterType="com.spring.entity.HerosEntity">
+		update heros set 
+		name=#{name},
+		img_url=#{imgUrl},
+		history=#{history},
+		category_id = #{categoryId}
+		where id = #{id}
+	</update>
+	
+	<delete id="HerosDelete">
+		delete from heros 
+		where id=#{id}
+	</delete>
+	
+	
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.CategoryMapper">
+	
+	<select id="CategoryGet" resultType="com.spring.entity.CategoryEntity">
+		select * from category where id=#{id}
+	</select>
+	
+	<select id="CategoryGetAll" resultType="com.spring.entity.CategoryEntity">
+		select id,name,description from category
+	</select>
+	
+	<update id="CategoryUpdate" parameterType="com.spring.entity.CategoryEntity">
+		update category set
+		name=#{name},
+		description=#{description}
+		where id = #{id}
+	</update>
+
+	<delete id="CategoryDelete">
+		delete * from category where id=#{id}
+	</delete>	
+</mapper>

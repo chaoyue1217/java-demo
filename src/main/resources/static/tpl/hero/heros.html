@@ -1,0 +1,32 @@
+<div ng-controller="HerosCtrl">
+	<div class="bg-light lter b-b wrapper-md"  style="position:fixed;z-index:99;width:100%">
+	  <h1 class="m-n font-thin h3 operation"><a ui-sref="app.category.category">分类</a>>>{{categoryName}}</h1>
+	</div>
+	<div class="wrapper-md">
+		
+	  <div class="panel panel-success col-sm-8" style="padding:0;margin:60px 0 0 70px">
+	  	 
+        <div class="panel-heading" style="padding:20px 15px">
+        	  人物列表
+	       	<div style="float:right;margin-top:-5px">
+		  		<a ui-sref="app.category.heros_create({category_id:'{{category_id}}'})"><button class="btn m-b-xs w-xs btn-primary" ng-click="addHeros()">添加英雄</button></a>
+		 	</div>
+        </div>
+        <ul class="list-group alt">
+          <li class="list-group-item clearfix" style="position:relative"  ng-repeat="hero in heros">
+            <div class="media col-sm-8">
+              <span class="pull-left thumb-md"><img ng-src="{{hero.imgUrl}}" class="img-circle"></span>
+              <div class="media-body hero_item">
+                <div><a ui-sref="app.category.attrs({hero_id:'{{hero.id}}',category_id:'{{category_id}}',hero_name:'{{hero.name}}'})" title="查看英雄属性">{{hero.name}}</a></div>
+                <small class="text-muted">{{hero.history}}</small>
+              </div>
+            </div>
+            <div class="col-sm-4" style="position: absolute;top: 50%;left: 60%;margin:-17px 0 0 0">
+            	<button class="btn  btn-info btn-rounded" style="float:right" ng-click="deleteHero(hero.id)">删除</button>
+            	<button class="btn  btn-info btn-rounded" style="margin-right:10px;float:right" ng-click="updateHero(hero.id)">修改</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+	</div>
+</div>

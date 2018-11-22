@@ -1,0 +1,69 @@
+<div ng-controller="HeroAttrsCreateCtrl">
+	<div class="bg-light lter b-b wrapper-md"  style="position:fixed;z-index:99;width:100%">
+	  <h1 class="m-n font-thin h3 operation"><a ui-sref="app.category.category">分类</a>>><a ui-sref="app.category.heros({category_id:'{{category_id}}'})">{{category_name}}</a>>>{{hero_name}}</h1>
+	</div>
+	<div class="wrapper-md">
+	  <div class="panel panel-success col-sm-8" style="padding:0;margin:80px 0 0 70px">
+	  	<div class="form-horizontal" style="padding:20px">
+	  	  <div class="form-group">
+           		<label class="col-sm-2 control-label">生存能力</label>
+            	<div class="col-sm-3">
+                	<input type="number" class="form-control" placeholder="50" ng-model="attrs.survival"/>
+            	</div>
+     	   </div> 
+     	   <div class="form-group">
+           		<label class="col-sm-2 control-label">攻击伤害</label>
+            	<div class="col-sm-3">
+                	<input type="number" class="form-control" placeholder="50" ng-model="attrs.damage"/>
+            	</div>
+     	   </div> 
+     	   <div class="form-group">
+           		<label class="col-sm-2 control-label">技能效果</label>
+            	<div class="col-sm-3">
+                	<input type="number" class="form-control" placeholder="50" ng-model="attrs.skill"/>
+            	</div>
+     	   </div> 
+     	   <div class="form-group">
+           		<label class="col-sm-2 control-label">上手难度</label>
+            	<div class="col-sm-3">
+                	<input type="number" class="form-control" placeholder="50" ng-model="attrs.difficulty"/>
+            	</div>
+     	   </div> 
+           <div class="form-group">
+           		<label  for="description" class="col-sm-2 control-label">被动</label>
+            	<div class="col-sm-6">
+            		<input type="text" class="form-control" ng-model="attrs.passiveName" style="margin-bottom:20px" placeholder="请输入被动名称"/>
+                	<textarea class="form-control" rows="4" placeholder="请输入被动描述" id="description" ng-model="attrs.passive"></textarea>
+            	</div>
+     	   </div> 
+     	    <div class="form-group">
+           		<label  for="description" class="col-sm-2 control-label">技能一</label>
+            	<div class="col-sm-6">
+            		<input type="text" class="form-control" ng-model="attrs.firstName" style="margin-bottom:20px" placeholder="请输入技能一名称"/>
+                	<textarea class="form-control" rows="4" placeholder="请输入技能一描述" id="description" ng-model="attrs.first"></textarea>
+            	</div>
+     	   </div> 
+     	    <div class="form-group">
+           		<label  for="description" class="col-sm-2 control-label">技能二</label>
+            	<div class="col-sm-6">
+            		<input type="text" class="form-control" ng-model="attrs.secondName" style="margin-bottom:20px" placeholder="请输入技能二名称"/>
+                	<textarea class="form-control" rows="4" placeholder="请输入技能二描述" id="description" ng-model="attrs.second"></textarea>
+            	</div>
+     	   </div> 
+     	    <div class="form-group">
+           		<label  for="description" class="col-sm-2 control-label">技能三</label>
+            	<div class="col-sm-6">
+            		<input type="text" class="form-control" ng-model="attrs.thirdName" style="margin-bottom:20px" placeholder="请输入技能三名称"/>
+                	<textarea class="form-control" rows="4" placeholder="请输入技能三描述" id="description" ng-model="attrs.third"></textarea>
+            	</div>
+     	   </div> 
+     	    <div class="form-group" >
+       			<label  class="col-sm-2 control-label" ></label>
+            	<button type="submit" class="btn btn-default "  ng-click="goBack()" style='margin-right:1%;'>返回</button>
+				<button type="submit" class="btn btn-success "  ng-click="addAttrs()">创建</button>                                    
+			</div>                  
+		</div>
+                           
+      </div>
+	</div>
+</div>

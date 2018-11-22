@@ -1,0 +1,73 @@
+<div ng-controller="HerosModifyCtrl">
+	<div class="bg-light lter b-b wrapper-md">
+	  <h1 class="m-n font-thin h3 operation"><a ui-sref="app.category.category">分类</a>>><a ui-sref="app.category.heros({category_id:'{{category_id}}'})">{{category_name}}</a>>>{{hero.name}}</h1>
+	</div>
+	<div class="wrapper-md">
+	  <div class="panel panel-success col-sm-8" style="padding:0;margin:20px">
+	  	<div class="form-horizontal" style="padding:20px">
+           <div class="form-group">
+           		<label  for="description" class="col-sm-2 control-label">历史描述</label>
+            	<div class="col-sm-6">
+                	<textarea class="form-control" rows="6" placeholder="Enter ..." id="description" ng-model="hero.history"></textarea>
+            	</div>
+     	   </div> 
+     	   <div class="form-group">
+     	   		<label  for="type" class="col-sm-2 control-label">所属分类</label>
+            	<div class="col-sm-6">
+                	<span class="col-sm-2 control-label text-left">{{category_name}}</span>
+            	</div>
+     	   </div> 
+     	  <!-- 头像上传 -->
+     	   <div class="form-group">
+     	   		<label class="col-sm-2 control-label">英雄头像</label>
+     	   		<div class="col-sm-6" style="margin-bottom:20px">
+			      <div class="inline bg-white wrapper-sm b-a">
+			        <div class="bg-light">
+			          <img ng-src="{{hero.imgUrl}}" title="点击修改头像" ng-click="showCrop=true"/>
+			        </div>
+			      </div>
+			    </div>
+     	   		<form id="fileForm" class="col-sm-offset-2" ng-show="showCrop" enctype="multipart/form-data">
+	            	<div class="col-sm-10">
+	                	<div class="m-b">
+					    	<input type="file" id="fileInput" name="file"/>
+					  	</div>
+					  <div class="hbox hbox-auto-xs">
+					    <div class="col">
+					      <div class="wrapper-sm b-a bg-white m-r-xs m-b-xs">
+					        <div class="bg-light" style="height:250px">
+					          <img-crop 
+					            image="myImage" 
+					            result-image="myCroppedImage"
+					            result-image-size="160"
+					            area-type="{{cropType}}"
+					          ></img-crop>
+					        </div>
+					      </div>
+					    </div>
+					    <div class="col">
+					      <div class="inline bg-white wrapper-sm b-a">
+					        <div class="bg-light">
+					          <img ng-src="{{myCroppedImage}}" />
+					        </div>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="btn-group m-t">
+					      <label class="btn btn-default" ng-model="cropType" btn-radio="'circle'">Circle</label>
+					      <label class="btn btn-default" ng-model="cropType" btn-radio="'square'">Square</label>
+					  </div>
+	            	</div>
+	            	<input type="submit" ng-click="upload()" value="" style="visibility:hidden"/>
+            	</form>
+     	   </div>
+     	    <div class="form-group" >
+       			<label  class="col-sm-2 control-label" ></label>
+            	<button type="submit" class="btn btn-default "  ng-click="goBack()" style='margin-right:1%;'>返回</button>
+				<button type="submit" class="btn btn-success "  ng-click="update()">修改</button>                                    
+			</div>                  
+		</div>
+                           
+      </div>
+	</div>
+</div>
